@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "59f72cfd-58c9-3d78-b3ad-1dfea2912239",
-		"name": "challenge",
+		"name": "adidas-challenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -239,13 +239,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ce375ac8-c305-4d1d-8b1d-8cdaed86d32d",
+						"id": "be50521b-d7f4-442b-965d-2f13577ff242",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
-							"var jsonData = pm.response.json();",
+							"var jsonData = JSON.parse(responseBody);",
 							"",
-							"tests[\"stages size is 3\"] = jsonData.stageList.size === 3"
+							"tests[\"stages size is not 3. it is \" + jsonData.stageList.length] = jsonData.stageList.length === 3"
 						]
 					}
 				}
@@ -282,13 +282,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9d067418-2b5e-4e25-beca-c5f564814b52",
+						"id": "63eb4ae6-aa1d-4725-adb5-5bc7a6f82049",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
-							"var jsonData = pm.response.json();",
+							"var jsonData = JSON.parse(responseBody);",
 							"",
-							"tests[\"stages size is 2\"] = jsonData.stageList.size === 2"
+							"tests[\"stages size is not 2. it is \" + jsonData.stageList.length] = jsonData.stageList.length === 2"
 						]
 					}
 				}
