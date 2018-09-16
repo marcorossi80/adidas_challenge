@@ -1,0 +1,1 @@
+java -jar .\build\libs\city-connection-manager-0.1.0.jar
