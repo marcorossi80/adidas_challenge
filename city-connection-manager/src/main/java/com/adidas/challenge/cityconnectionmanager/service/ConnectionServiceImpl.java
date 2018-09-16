@@ -5,6 +5,7 @@ import com.adidas.challenge.cityconnectionmanager.repository.ConnectionInstanceR
 import com.adidas.challenge.cityconnectionmanager.repository.ConnectionRepository;
 import com.adidas.challenge.cityconnectionmanager.repository.model.ConnectionEntity;
 import com.adidas.challenge.cityconnectionmanager.repository.model.ConnectionInstanceEntity;
+import com.adidas.challenge.cityconnectionmanager.repository.model.ConnectionKey;
 import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionConverter;
 import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionEntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -37,13 +39,26 @@ public class ConnectionServiceImpl implements ConnectionService {
 
         double meanTime = calculateConnectionMeanTime(city, destinyCity);
 
-        Connection connection = Connection.builder()
-                .city(city)
-                .destinyCity(destinyCity)
-                .meanTime(meanTime)
-                .build();
+        if(meanTime == Double.MAX_VALUE) {
+            //The time of the connection is MAX VALUE
+            //The connection has to be deleted
+            deleteConnection(city, destinyCity);
+        }
+        else {
+            Connection connection = Connection.builder()
+                    .city(city)
+                    .destinyCity(destinyCity)
+                    .meanTime(meanTime)
+                    .build();
 
-        save(connection);
+            save(connection);
+        }
+    }
+
+    private void deleteConnection(String city, String destinyCity) {
+        Optional<ConnectionEntity> connectionToDelete = connectionRepository.findById(ConnectionKey.builder().city(city).destinyCity(destinyCity).build());
+        if(connectionToDelete.isPresent())
+            connectionRepository.delete(connectionToDelete.get());
     }
 
     public double calculateConnectionMeanTime(String city, String destinyCity) {
@@ -52,8 +67,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 .map(ci -> Duration.between(ci.getDepartureTime(), ci.getArrivalTime())
                         .getSeconds())
                 .mapToDouble(n -> n)
-                .average()
-                .getAsDouble();
+                .average().orElse(Double.MAX_VALUE);
         return meanTime;
     }
 
