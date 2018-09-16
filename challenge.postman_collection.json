@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "59f72cfd-58c9-3d78-b3ad-1dfea2912239",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST ConnectionEntity Huesca-Zaragoza 60 min",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab329c18-18e3-4f77-8f43-53720ff8d5a3",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"Huesca\",\n\t\"destinyCity\": \"Zaragoza\",\n\t\"departureTime\": \"2018-09-15T18:00:00\",\n\t\"arrivalTime\": \"2018-09-15T19:00:00\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/connection-instance/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection-instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ConnectionEntity HUESCA-Zaragoza 50 min",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5487e17b-a654-4369-bb22-793cc7d1ba17",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"HUESCA\",\n\t\"destinyCity\": \"Zaragoza\",\n\t\"departureTime\": \"2018-09-15T19:00:00\",\n\t\"arrivalTime\": \"2018-09-15T19:50:00\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/connection-instance/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection-instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ConnectionEntity Zaragoza-Madrid 180 min",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a016626f-e049-4a5f-80b1-bfb3ba454daa",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"Zaragoza\",\n\t\"destinyCity\": \"Madrid\",\n\t\"departureTime\": \"2018-09-15T12:00:00\",\n\t\"arrivalTime\": \"2018-09-15T15:00:00\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/connection-instance/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection-instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ConnectionEntity Huesca-Madrid 250 min",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f27b8909-798d-4a7e-b1af-a7de3b5d897f",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"Huesca\",\n\t\"destinyCity\": \"Madrid\",\n\t\"departureTime\": \"2018-09-15T12:00:00\",\n\t\"arrivalTime\": \"2018-09-15T16:10:00\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/connection-instance/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection-instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL ConnectionEntity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8571a8f2-d79e-4e18-9702-8372fac52751",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8082/connection-instance/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection-instance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL Connection",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5293ec8-62f4-4e8a-947c-c9273396e068",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8082/connection/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"connection",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest TIME",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce375ac8-c305-4d1d-8b1d-8cdaed86d32d",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							"var jsonData = pm.response.json();",
+							"",
+							"tests[\"stages size is 3\"] = jsonData.stageList.size === 3"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/Huesca/madrid?calculation-mode=TIME",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"Huesca",
+						"madrid"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "TIME"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest CONNECTIONS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d067418-2b5e-4e25-beca-c5f564814b52",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							"var jsonData = pm.response.json();",
+							"",
+							"tests[\"stages size is 2\"] = jsonData.stageList.size === 2"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/Huesca/madrid?calculation-mode=CONNECTIONS",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"Huesca",
+						"madrid"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "CONNECTIONS"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
