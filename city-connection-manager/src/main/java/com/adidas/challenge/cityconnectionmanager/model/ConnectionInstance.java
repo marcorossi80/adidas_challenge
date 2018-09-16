@@ -2,14 +2,18 @@ package com.adidas.challenge.cityconnectionmanager.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @ApiModel(value = "Connection between two cities that have been done on a specific day and time.")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ConnectionInstance {
 
     @ApiModelProperty(value = "Identifier.", example = "123", required = false)
