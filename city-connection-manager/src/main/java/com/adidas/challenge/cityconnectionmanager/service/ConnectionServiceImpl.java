@@ -1,5 +1,6 @@
 package com.adidas.challenge.cityconnectionmanager.service;
 
+import com.adidas.challenge.cityconnectionmanager.exception.NoMeanTimeException;
 import com.adidas.challenge.cityconnectionmanager.model.Connection;
 import com.adidas.challenge.cityconnectionmanager.repository.ConnectionInstanceRepository;
 import com.adidas.challenge.cityconnectionmanager.repository.ConnectionRepository;
@@ -8,6 +9,7 @@ import com.adidas.challenge.cityconnectionmanager.repository.model.ConnectionIns
 import com.adidas.challenge.cityconnectionmanager.repository.model.ConnectionKey;
 import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionConverter;
 import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionEntityConverter;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@Log4j2
 @Component
 public class ConnectionServiceImpl implements ConnectionService {
 
@@ -37,22 +40,22 @@ public class ConnectionServiceImpl implements ConnectionService {
     @Async
     public void refreshConnection(String city, String destinyCity) {
 
-        double meanTime = calculateConnectionMeanTime(city, destinyCity);
-
-        if(meanTime == Double.MAX_VALUE) {
-            //The time of the connection is MAX VALUE
-            //The connection has to be deleted
+        Double meanTime = null;
+        try {
+            meanTime = calculateConnectionMeanTime(city, destinyCity);
+        } catch (NoMeanTimeException e) {
+            log.warn("The mean time from %s to %s has not been found", city, destinyCity);
+            log.warn("Deleting the connection");
             deleteConnection(city, destinyCity);
         }
-        else {
-            Connection connection = Connection.builder()
-                    .city(city)
-                    .destinyCity(destinyCity)
-                    .meanTime(meanTime)
-                    .build();
 
-            save(connection);
-        }
+        Connection connection = Connection.builder()
+                .city(city)
+                .destinyCity(destinyCity)
+                .meanTime(meanTime)
+                .build();
+
+        save(connection);
     }
 
     private void deleteConnection(String city, String destinyCity) {
@@ -67,7 +70,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 .map(ci -> Duration.between(ci.getDepartureTime(), ci.getArrivalTime())
                         .getSeconds())
                 .mapToDouble(n -> n)
-                .average().orElse(Double.MAX_VALUE);
+                .average().orElseThrow(() -> new NoMeanTimeException());
         return meanTime;
     }
 

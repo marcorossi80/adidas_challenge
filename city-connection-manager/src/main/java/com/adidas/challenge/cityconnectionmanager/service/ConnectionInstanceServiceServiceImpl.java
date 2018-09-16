@@ -8,7 +8,6 @@ import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionIn
 import com.adidas.challenge.cityconnectionmanager.service.converter.ConnectionInstanceEntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
 import java.util.stream.Collectors;
