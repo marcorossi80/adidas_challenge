@@ -90,6 +90,9 @@ Method 1
 * Go to the directory distance-calculator, build the jar and run tests **gradle build**
 * Run the application using run.sh or run.bat
 
+NOTE: Once all the services are running, the postman collection **challenge.postman_collection.json** can be run 
+to assure the correct functional end-to-end behaviour. 
+
 Method 2
 * Go to the directory eureka build the docker image **gradlew docker build**
 * Run **docker run -p 8761:8761 -t com.adidas.challenge/eureka
