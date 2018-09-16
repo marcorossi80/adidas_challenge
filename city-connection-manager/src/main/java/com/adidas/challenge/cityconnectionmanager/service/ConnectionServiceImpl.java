@@ -47,8 +47,10 @@ public class ConnectionServiceImpl implements ConnectionService {
             log.warn("The mean time from %s to %s has not been found", city, destinyCity);
             log.warn("Deleting the connection");
             deleteConnection(city, destinyCity);
+            return;
         }
 
+        //If the mean time has been obtained, the connection is created / updated
         Connection connection = Connection.builder()
                 .city(city)
                 .destinyCity(destinyCity)
