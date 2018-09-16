@@ -83,11 +83,11 @@ For the method 2, it is necessary to have docker.
 
 Download the code First clone the git repository from **https://github.com/rafabanzo/adidas_challenge/**
 Method 1
-* Go to the directory eureka, build the jar and run tests **gradlew build**
+* Go to the directory eureka, build the jar and run tests **gradle build**
 * Run the application using run.sh or run.bat
-* Go to the directory city-connection-manager, build the jar and run tests **gradlew build**
+* Go to the directory city-connection-manager, build the jar and run tests **gradle build**
 * Run the application using run.sh or run.bat
-* Go to the directory distance-calculator, build the jar and run tests **gradlew build**
+* Go to the directory distance-calculator, build the jar and run tests **gradle build**
 * Run the application using run.sh or run.bat
 
 Method 2
