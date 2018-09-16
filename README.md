@@ -14,6 +14,7 @@ It includes two contollers:
 * connection-instance-controller: This controller maintains the connections between two cities that have been done on a specific day and time.
 It has five methods:
 ** /connection-instance/ POST --> Inserts a connection between two cities that has been done on a specific date and time.
+If it is sucessful, it returns http status 201 and the id with which it has been stored in the data base.
 ** /connection-instance/{id} GET --> Reads a connection between two cities that has been done on a specific date and time.
 ** /connection-instance/{id} PUT --> Updates a connection between two cities that has been done on a specific date and time.
 ** /connection-instance/{id} DELETE --> Deletes a connection between two cities that has been done on a specific date and time.
