@@ -8,7 +8,8 @@ There are three projects in this git repository:
 
 ### city-connection-manager
 This microservice that maintains the details of the city connections.
-All the data is stored in an h2 in-memory data base
+All the data is stored in an h2 in-memory data base.
+By default, it runs in http://localhost:8082
 It includes two contollers:
 * connection-instance-controller: This controller maintains the connections between two cities that have been done on a specific day and time.
 It has five methods:
@@ -25,6 +26,7 @@ http://localhost:8082/swagger-ui.html#
 
 ### distance-calculator
 This microservice calculates the shortest route between two cities both in time and in number of connections.
+By default, it runs in http://localhost:8082
 It has only one controller with one method:
 * /distance-calculator-controller
 ** /calculate-shortest/{city}/{destiny-city}?calculation-mode=[TIME|CONNECTIONS] GET--> Calculates the shortest journey
@@ -74,10 +76,27 @@ I have used it to build the docker image
 ## Running the application
 ### Prerequisites
 
-It is necessary to have java, git, gradle and docker configured in the machine.
+For the method 1, it is necessary to have java, git and gradle configured in the machine.
+For the method 2, it is necessary to have docker.
 
 ### Installing
 
-* Download the code First clone the git repository from **https://github.com/rafabanzo/adidas_challenge/**
+Download the code First clone the git repository from **https://github.com/rafabanzo/adidas_challenge/**
+Method 1
+* Go to the directory eureka, build the jar and run tests **gradlew build**
+* Run the application using run.sh or run.bat
 * Go to the directory city-connection-manager, build the jar and run tests **gradlew build**
-* Run the springboot application using run.sh or run.bat
+* Run the application using run.sh or run.bat
+* Go to the directory distance-calculator, build the jar and run tests **gradlew build**
+* Run the application using run.sh or run.bat
+
+Method 2
+* Go to the directory eureka build the docker image **gradlew docker build**
+* Run **docker run -p 8761:8761 -t com.adidas.challenge/eureka
+* Go to the directory city-connection-manager build the docker image **gradlew docker build**
+* Run **docker run -p 8082:8082 -t com.adidas.challenge/city-connection-manager
+* Go to the directory distance-calculator build the docker image **gradlew docker build**
+* Run **docker run -p 8083:8083 -t com.adidas.challenge/distance-calculator**
+NOTE: I have not been able to run the method 2 as I have had problems installing docker on my old windows 7 laptop
+
+
