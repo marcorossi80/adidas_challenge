@@ -1,8 +1,10 @@
 {
+	"variables": [],
 	"info": {
-		"_postman_id": "59f72cfd-58c9-3d78-b3ad-1dfea2912239",
 		"name": "adidas-challenge",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "429cb4a6-dd3f-e9b4-ec1a-416427c09c44",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -11,7 +13,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab329c18-18e3-4f77-8f43-53720ff8d5a3",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 201\"] = responseCode.code === 201"
@@ -20,6 +21,7 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection-instance/",
 				"method": "POST",
 				"header": [
 					{
@@ -31,17 +33,7 @@
 					"mode": "raw",
 					"raw": "{\n\t\"city\": \"Huesca\",\n\t\"destinyCity\": \"Zaragoza\",\n\t\"departureTime\": \"2018-09-15T18:00:00\",\n\t\"arrivalTime\": \"2018-09-15T19:00:00\"\n}"
 				},
-				"url": {
-					"raw": "localhost:8082/connection-instance/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection-instance",
-						""
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
@@ -51,7 +43,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5487e17b-a654-4369-bb22-793cc7d1ba17",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 201\"] = responseCode.code === 201"
@@ -60,6 +51,7 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection-instance/",
 				"method": "POST",
 				"header": [
 					{
@@ -71,17 +63,7 @@
 					"mode": "raw",
 					"raw": "{\n\t\"city\": \"HUESCA\",\n\t\"destinyCity\": \"Zaragoza\",\n\t\"departureTime\": \"2018-09-15T19:00:00\",\n\t\"arrivalTime\": \"2018-09-15T19:50:00\"\n}"
 				},
-				"url": {
-					"raw": "localhost:8082/connection-instance/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection-instance",
-						""
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
@@ -91,7 +73,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a016626f-e049-4a5f-80b1-bfb3ba454daa",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 201\"] = responseCode.code === 201"
@@ -100,6 +81,7 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection-instance/",
 				"method": "POST",
 				"header": [
 					{
@@ -111,17 +93,7 @@
 					"mode": "raw",
 					"raw": "{\n\t\"city\": \"Zaragoza\",\n\t\"destinyCity\": \"Madrid\",\n\t\"departureTime\": \"2018-09-15T12:00:00\",\n\t\"arrivalTime\": \"2018-09-15T15:00:00\"\n}"
 				},
-				"url": {
-					"raw": "localhost:8082/connection-instance/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection-instance",
-						""
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
@@ -131,7 +103,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f27b8909-798d-4a7e-b1af-a7de3b5d897f",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 201\"] = responseCode.code === 201"
@@ -140,6 +111,7 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection-instance/",
 				"method": "POST",
 				"header": [
 					{
@@ -151,17 +123,7 @@
 					"mode": "raw",
 					"raw": "{\n\t\"city\": \"Huesca\",\n\t\"destinyCity\": \"Madrid\",\n\t\"departureTime\": \"2018-09-15T12:00:00\",\n\t\"arrivalTime\": \"2018-09-15T16:10:00\"\n}"
 				},
-				"url": {
-					"raw": "localhost:8082/connection-instance/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection-instance",
-						""
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
@@ -171,7 +133,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8571a8f2-d79e-4e18-9702-8372fac52751",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
@@ -183,20 +144,14 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection-instance/",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:8082/connection-instance/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection-instance",
-						""
-					]
-				}
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
 			},
 			"response": []
 		},
@@ -206,7 +161,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e5293ec8-62f4-4e8a-947c-c9273396e068",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
@@ -216,30 +170,23 @@
 				}
 			],
 			"request": {
+				"url": "localhost:8082/connection/",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:8082/connection/",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"connection",
-						""
-					]
-				}
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "calculate-shortest TIME",
+			"name": "calculate-shortest TIME 3 Steps",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "be50521b-d7f4-442b-965d-2f13577ff242",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
@@ -251,9 +198,6 @@
 				}
 			],
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
 				"url": {
 					"raw": "https://localhost:8083/calculate-shortest/Huesca/madrid?calculation-mode=TIME",
 					"protocol": "https",
@@ -271,8 +215,16 @@
 							"key": "calculation-mode",
 							"value": "TIME"
 						}
-					]
-				}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
 			},
 			"response": []
 		},
@@ -282,7 +234,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "63eb4ae6-aa1d-4725-adb5-5bc7a6f82049",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200",
@@ -294,9 +245,6 @@
 				}
 			],
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
 				"url": {
 					"raw": "https://localhost:8083/calculate-shortest/Huesca/madrid?calculation-mode=CONNECTIONS",
 					"protocol": "https",
@@ -314,8 +262,150 @@
 							"key": "calculation-mode",
 							"value": "CONNECTIONS"
 						}
-					]
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT ConnectionEntity 2 Huesca-Madrid 100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200"
+						]
+					}
 				}
+			],
+			"request": {
+				"url": "localhost:8082/connection-instance/2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 2,\n  \"city\": \"Huesca\",\n  \"destinyCity\": \"Madrid\",\n  \"departureTime\": \"2018-09-15T12:00:00\",\n  \"arrivalTime\": \"2018-09-15T13:40:00\"\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest TIME 2 Steps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"stages size is not 2. it is \" + jsonData.stageList.length] = jsonData.stageList.length === 2"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/Huesca/madrid?calculation-mode=TIME",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"Huesca",
+						"madrid"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "TIME",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ConnectionEntity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:8082/connection-instance/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL Connection No Huesca-Zaragoza",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"There are 2 connections\"] = jsonData.length == 2",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:8082/connection/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
 			},
 			"response": []
 		}
