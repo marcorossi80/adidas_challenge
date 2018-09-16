@@ -12,8 +12,6 @@ import java.util.List;
 @RunWith(MockitoJUnitRunner.class)
 public class ShortestCalculatorImplTimeBasedTest {
 
-    //@Mock
-
     @InjectMocks
     private ShortestCalculatorImplTimeBased shortestJourneyCalculator;
 
