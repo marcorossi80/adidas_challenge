@@ -23,7 +23,7 @@
 hs_err_pid*
 
 # Builds except docker
-#*/build
+*/build
 #!*/build/docker/*
 
 */.gradle
