@@ -1,1 +1,1 @@
-java -jar .\build\libs\distance-calculator-0.0.1-SNAPSHOT.jar
+java -jar .\build\libs\distance-calculator-0.1.0-SNAPSHOT.jar
