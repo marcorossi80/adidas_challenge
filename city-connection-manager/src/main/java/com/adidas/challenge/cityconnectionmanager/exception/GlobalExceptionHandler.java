@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public String handleException(HttpServletRequest req, MethodArgumentNotValidException e) {
         log.warn(e);
-        return e.getMessage();
+        return "The request is not valid";
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

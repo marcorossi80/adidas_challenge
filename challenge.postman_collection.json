@@ -128,6 +128,66 @@
 			"response": []
 		},
 		{
+			"name": "POST ConnectionEntity no city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:8082/connection-instance/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"destinyCity\": \"Zaragoza\",\n  \"departureTime\": \"2018-09-15T18:00:00\",\n  \"arrivalTime\": \"2018-09-15T19:00:00\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ConnectionEntity wrong date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:8082/connection-instance/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"city\": \"Huesca\",\n  \"destinyCity\": \"Zaragoza\",\n  \"departureTime\": \"2018-09-15T18:00:00\",\n  \"arrivalTime\": \"2018-09-15T19:003\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET ALL ConnectionEntity",
 			"event": [
 				{
@@ -406,6 +466,129 @@
 				"header": [],
 				"body": {},
 				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest TIME Route found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/Madrid/Huesca?calculation-mode=TIME",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"Madrid",
+						"Huesca"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "TIME",
+							"equals": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest TIME city not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/XXXX/madrid?calculation-mode=TIME",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"XXXX",
+						"madrid"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "TIME",
+							"equals": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-shortest TIME destiny city not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://localhost:8083/calculate-shortest/Huesca/XXXX?calculation-mode=TIME",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"calculate-shortest",
+						"Huesca",
+						"XXXX"
+					],
+					"query": [
+						{
+							"key": "calculation-mode",
+							"value": "TIME",
+							"equals": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {}
 			},
 			"response": []
 		}
